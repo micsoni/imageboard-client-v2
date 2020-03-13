@@ -7,10 +7,10 @@ class UserLoggedInImages extends Component {
     imagesInEdit: []
   };
 
-  toggleForm = (image) => {
-    const newState = (this.state.imagesInEdit.includes(image.id))
+  toggleForm = image => {
+    const newState = this.state.imagesInEdit.includes(image.id)
       ? this.state.imagesInEdit.filter(id => id !== image.id)
-      : this.state.imagesInEdit.concat(image.id)
+      : this.state.imagesInEdit.concat(image.id);
 
     this.setState({ imagesInEdit: newState });
   };
@@ -20,10 +20,18 @@ class UserLoggedInImages extends Component {
       const showForm = this.state.imagesInEdit.includes(image.id);
 
       return (
-         <div key={image.id}>
-            <ImageCard image={image} />
-            <button className="btn btn-dark" onClick={() => this.toggleForm(image)}>Edit mode</button>
-            {showForm &&  <EditImageFormContainer id={image.id} />}
+        <div key={image.id}>
+          <ImageCard image={image} />
+         <div>
+           <button
+            className="btn btn-dark"
+            onClick={() => this.toggleForm(image)}
+          >
+            Edit mode
+          </button>
+          
+          {showForm && <EditImageFormContainer id={image.id} />}
+        </div>
           </div>
       );
     });

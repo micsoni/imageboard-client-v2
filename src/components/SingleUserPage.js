@@ -20,7 +20,7 @@ class SingleUserPage extends Component {
     return (
       <div>
         <p>{this.props.userName}</p>
-       {displayImages}
+       <div className="row">{displayImages}</div>
       </div>
     );
   }

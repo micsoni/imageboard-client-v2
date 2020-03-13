@@ -8,7 +8,7 @@ import SingleUserPage from "./components/SingleUserPage"
 import Navbar from "./components/Navbar"
 import LoginPage from "./components/LoginPage"
 import SignupFormPage from "./components/SignupFormPage"
-import MyImageboardPage from "./components/MyImageboardPage"
+import UserLoggedInPage from "./components/UserLoggedInPage"
 
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
         <Route exact path="/signup" component={SignupFormPage} />
         <Route exact path="/user" component={AllUsersPage} />
         <Route exact path="/user/:userId" component={SingleUserPage} />
-        <Route exact path="/myimageboard" component={MyImageboardPage}/>
+        <Route exact path="/myimageboard" component={UserLoggedInPage}/>
       </Provider>
     );
   }

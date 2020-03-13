@@ -15,7 +15,7 @@ class Homepage extends React.Component {
     const displayImages = this.props.images.map(image => {
       return <ImageCard key={image.id} image={image} />;
     });
-    return <div>{displayImages}</div>;
+    return <div className="row">{displayImages}</div>;
   }
 }
 function mapStateToProps(state) {

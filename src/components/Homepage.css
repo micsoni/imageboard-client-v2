@@ -7,3 +7,7 @@ img {
   max-width: 350px;
   padding: 20px;
 }
+
+.btn {
+  margin: 5px;
+}
