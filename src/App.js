@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-         <Route path="/" component={Navbar} />
+         <Navbar />
         <Route exact path="/" component={Homepage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/signup" component={SignupFormPage} />

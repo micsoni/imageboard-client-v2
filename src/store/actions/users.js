@@ -1,6 +1,6 @@
 import request from "superagent";
 
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://damp-harbor-71052.herokuapp.com";
 
 function getallUsers(userData) {
   return {
