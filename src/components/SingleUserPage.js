@@ -1,33 +1,37 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import List from "./List";
+import ImageCard from "./ImageCard";
 import { getUser } from "../store/actions/user";
 
-class SingleUserImages extends Component {
+class SingleUserPage extends Component {
   componentDidMount() {
     this.props.getUser(Number(this.props.match.params.userId));
-  
   }
 
   render() {
+
     if (!this.props.userImages) {
       return <p>Loading...</p>;
     }
-    const displayImages = <List images={this.props.userImages} />;
+
+    const displayImages = this.props.userImages.map(image => {
+      return <ImageCard key={image.id} image={image} />;
+    });
     return (
       <div>
         <p>{this.props.userName}</p>
-        {displayImages}
+       {displayImages}
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
-  return { userImages: state.allUsers.uniqueUser.images,
-    userName: state.allUsers.uniqueUser.username};
+  return {
+    userImages: state.users.uniqueUser.images,
+    userName: state.users.uniqueUser.username
+  };
 }
 const mapDispatchToProps = { getUser };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleUserImages);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleUserPage);

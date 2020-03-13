@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { getUsers } from "../store/actions/allUsers";
+import { getUsers } from "../store/actions/users";
 import { connect } from "react-redux";
 import AllUsers from "./AllUsers";
 
-class AllUsersContainer extends Component {
+class AllUsersPage extends Component {
   componentDidMount() {
     this.props.getUsers();
   }
   render() {
-    const displayUsers = <AllUsers AllUsersNames={this.props.allUsers} />;
-    if (!this.props.allUsers.length) {
+    const displayUsers = <AllUsers usersNames={this.props.users} />;
+    if (!this.props.users.length) {
       return <p>Loading...</p>;
     }
 
@@ -17,7 +17,7 @@ class AllUsersContainer extends Component {
   }
 }
 function mapStateToProps(state) {
-  return { allUsers: state.allUsers.all };
+  return { users: state.users.all };
 }
 const mapDispatchToProps = { getUsers };
-export default connect(mapStateToProps, mapDispatchToProps)(AllUsersContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AllUsersPage);

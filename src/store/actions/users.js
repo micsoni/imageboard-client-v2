@@ -11,9 +11,9 @@ function getallUsers(userData) {
 
 export const getUsers = () => (dispatch, getState) => {
   const state = getState();
-  const { allUsers } = state;
-  console.log(allUsers);
-  if (!allUsers.all.length) {
+  const { users } = state;
+  console.log(users);
+  if (!users.all.length) {
     request
       .get(`${baseUrl}/user`)
       .then(response => {

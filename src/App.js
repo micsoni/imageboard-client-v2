@@ -1,18 +1,27 @@
 import React, { Component } from "react";
 import store from "./store/index";
 import { Provider } from "react-redux";
-import ListContainer from "./components/ListContainer";
+import Homepage from "./components/Homepage";
 import { Route } from "react-router-dom";
-import AllUsersContainer from "./components/AllUsersContainer";
-import SingleUserImages from "./components/SingleUserImages"
+import AllUsersPage from "./components/AllUsersPage";
+import SingleUserPage from "./components/SingleUserPage"
+import Navbar from "./components/Navbar"
+import LoginPage from "./components/LoginPage"
+import SignupFormPage from "./components/SignupFormPage"
+import MyImageboardPage from "./components/MyImageboardPage"
+
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Route exact path="/" component={ListContainer} />
-        <Route exact path="/user" component={AllUsersContainer} />
-        <Route exact path="/user/:userId" component={SingleUserImages} />
+         <Route path="/" component={Navbar} />
+        <Route exact path="/" component={Homepage} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/signup" component={SignupFormPage} />
+        <Route exact path="/user" component={AllUsersPage} />
+        <Route exact path="/user/:userId" component={SingleUserPage} />
+        <Route exact path="/myimageboard" component={MyImageboardPage}/>
       </Provider>
     );
   }

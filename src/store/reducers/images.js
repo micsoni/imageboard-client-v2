@@ -14,7 +14,6 @@ export default function(state = initialState, action = {}) {
         all: [action.payload, ...state.all]
       };
     }
-   
     default:
       return state;
   }

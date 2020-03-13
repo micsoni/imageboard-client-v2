@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-export default class SingupForm extends Component {
+export default class SignupForm extends Component {
   render() {
     return (
       <div>
-        <p>Not a member yet? Singup!</p>
+        <p>Fill in your data to signup</p>
         <form onSubmit={this.props.onSubmit}>
-        <div className="form-group col-6">
+          <div className="form-group col-6">
             <label className="col-sm-2">Name</label>
             <input
               type="text"

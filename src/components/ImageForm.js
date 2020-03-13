@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
-export default class CreateForm extends Component {
+export default class CreateImageForm extends Component {
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
-        <p>Save your favorite images</p>
         <div className="form-group col-sm-12">
           <label className="col-sm-2">Title</label>
           <input
