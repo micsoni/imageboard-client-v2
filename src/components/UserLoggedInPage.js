@@ -5,14 +5,20 @@ import { getUser, logout } from "../store/actions/user";
 import { connect } from "react-redux";
 class UserLoggedInPage extends Component {
   componentDidMount() {
+    if (this.props.userLoggedIn.jwt) {
     this.props.getUser(this.props.userLoggedIn.id);
   }
+}
 
   onLogout = () => {
     this.props.logout();
     this.props.history.push("/");
   };
   render() {
+    if (!this.props.userLoggedIn.jwt) {
+      return <p>Login to access your imageboard</p>;
+    }
+
     if (!this.props.userImages) {
       return (
         <div>
@@ -28,7 +34,10 @@ class UserLoggedInPage extends Component {
           Logout
         </button>
         <CreateImageFormContainer />
-       <div className="row"> <UserLoggedInImages images={this.props.userImages} /></div>
+        <div className="row">
+          {" "}
+          <UserLoggedInImages images={this.props.userImages} />
+        </div>
       </div>
     );
   }

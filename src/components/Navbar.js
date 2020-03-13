@@ -33,6 +33,11 @@ export default class Navbar extends Component {
                 All users
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/myimageboard" className="nav-link">
+                My imageboard
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
